@@ -1,0 +1,13 @@
+{
+    "name": "tomnomnom/phpsecuritytxt",
+    "description": "A parser for security.txt files",
+    "homepage": "https://github.com/tomnomnom/phpsecuritytxt",
+    "license": "MIT",
+
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-4": {"SecurityTxt\\": "SecurityTxt/"}
+    }
+}
