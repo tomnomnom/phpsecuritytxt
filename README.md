@@ -10,7 +10,7 @@ $raw = file_get_contents("test/fixtures/basic.txt");
 $sectxt = new \SecurityTxt\Parser($raw);
 ```
 
-- or -
+You can create and empty object and call `parse()` instead:
 
 ```php
 <?php
