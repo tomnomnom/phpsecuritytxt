@@ -2,6 +2,16 @@
 
 Work in progress.
 
+## Install
+
+Install from [packagist](https://packagist.org/packages/tomnomnom/phpsecuritytxt):
+
+```
+▶ composer require tomnomnom/phpsecuritytxt
+```
+
+## Usage
+
 Parse a `security.txt` file:
 ```php
 <?php
@@ -63,3 +73,4 @@ foreach ($sectxt->comments() as $comment){
 ## TODO
 * Add support for fetching URLs directly
 * Improve test coverage
+* Set up travis to run tests
