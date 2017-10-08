@@ -2,15 +2,9 @@
 Contact: mail@tomnomnom.com
 Contact: https://tomnomnom.com
 
-# This is another comment
-Disclosure: Full
-
 # This field has different casing
 acknowledgement: https://tomnomnom.uk/hof
 ENCRYPTION: https://tomnomnom.uk/pgpkey
-
-Disclosure: foo
-Disclosure: full
 
 Encryption: not a URL
 Acknowledgement: not a URL

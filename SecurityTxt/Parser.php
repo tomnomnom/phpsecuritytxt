@@ -4,14 +4,7 @@ namespace SecurityTxt;
 class Parser {
     const FIELD_CONTACT         = 'contact';
     const FIELD_ENCRYPTION      = 'encryption';
-    const FIELD_DISCLOSURE      = 'disclosure';
     const FIELD_ACKNOWLEDGEMENT = 'acknowledgement';
-
-    private $validDisclosures = [
-        'full',
-        'partial',
-        'none'
-    ];
 
     private $errors = [];
     private $comments = [];
@@ -19,7 +12,6 @@ class Parser {
     private $fields = [
         self::FIELD_CONTACT         => [],
         self::FIELD_ENCRYPTION      => [],
-        self::FIELD_DISCLOSURE      => [],
         self::FIELD_ACKNOWLEDGEMENT => [],
     ];
 
@@ -80,9 +72,6 @@ class Parser {
             case self::FIELD_CONTACT:
                 return $this->validateContact($option, $value, $lineNo);
 
-            case self::FIELD_DISCLOSURE:
-                return $this->validateDisclosure($option, $value, $lineNo);
-
             case self::FIELD_ENCRYPTION:
             case self::FIELD_ACKNOWLEDGEMENT:
                 return $this->validateUri($option, $value, $lineNo);
@@ -101,14 +90,6 @@ class Parser {
             $this->isValidPhoneNumber($value)
         )){
             $this->addError("invalid value '{$value}' for option '{$option}' on line {$lineNo}");
-            return false;
-        }
-        return true;
-    }
-
-    private function validateDisclosure($option, $value, $lineNo){
-        if (!in_array(strToLower($value), $this->validDisclosures)){
-            $this->addError("invalid value '{$value}' for option '{$option}' on line {$lineNo}; must be one of [".implode(", ", $this->validDisclosures)."]");
             return false;
         }
         return true;
@@ -152,14 +133,6 @@ class Parser {
 
     public function contact(){
         return $this->fields[self::FIELD_CONTACT];
-    }
-
-    public function hasDisclosure(){
-        return (sizeOf($this->fields[self::FIELD_DISCLOSURE]) > 0);
-    }
-
-    public function disclosure(){
-        return $this->fields[self::FIELD_DISCLOSURE];
     }
 
     public function hasEncryption(){

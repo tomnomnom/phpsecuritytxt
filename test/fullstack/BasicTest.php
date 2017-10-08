@@ -17,14 +17,12 @@ class BasicTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue($s->hasComments());
         $this->assertTrue($s->hasErrors());
         $this->assertTrue($s->hasContact());
-        $this->assertTrue($s->hasDisclosure());
         $this->assertTrue($s->hasEncryption());
         $this->assertTrue($s->hasAcknowledgement());
 
-        $this->assertEquals(3, sizeOf($s->comments()));
-        $this->assertEquals(4, sizeOf($s->errors()));
+        $this->assertEquals(2, sizeOf($s->comments()));
+        $this->assertEquals(3, sizeOf($s->errors()));
         $this->assertEquals(4, sizeOf($s->contact()));
-        $this->assertEquals(2, sizeOf($s->disclosure()));
         $this->assertEquals(1, sizeOf($s->encryption()));
         $this->assertEquals(1, sizeOf($s->acknowledgement()));
     }
